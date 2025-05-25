@@ -1,0 +1,67 @@
+1.How does escape analysis work in JVM?
+Answer: Escape analysis determines whether an object can be accessed outside its method, allowing for optimizations like stack allocation and synchronization removal.
+
+2.What are some common JVM tuning parameters and their purpose?
+Answer: Common tuning parameters include:
+-Xms: Initial heap size.
+-Xmx: Maximum heap size.
+-XX:+UseG1GC: Enables G1 garbage collector.
+
+
+3.What are soft, weak, phantom references in the context of JVM?
+Answer: These are types of references that determine how objects are handled by the garbage collector:
+SoftReference: Objects are collected only when memory is low.
+WeakReference: Objects are collected at the next garbage collection cycle.
+PhantomReference: Objects are collected after the finalization phase.
+
+4.How does JVM optimize memory and execution during runtime?
+Answer: JVM optimizes memory and execution using techniques like JIT compilation, garbage collection, and adaptive optimization based on runtime profiling.
+
+5.How does JVM detect memory leaks?
+Answer: JVM detects memory leaks by identifying objects that are no longer reachable but not yet collected, often using profiling tools.
+
+6.Compare different garbage collection algorithms used in JVM.
+Answer: Garbage collection algorithms include:
+Serial GC: Single-threaded, suitable for small applications.
+Parallel GC: Multi-thread
+
+7.How is Java both compiled and interpreted?
+Answer: Java source code (.java) is compiled into bytecode (.class) using the Java compiler (javac). This bytecode is then interpreted or compiled at runtime by the JVM's 
+interpreter or JIT compiler, making Java both compiled and interpreted.
+
+8.Your Java application is running out of memory. How would you debug the issue?
+Answer:Analyze logs for OutOfMemoryError.
+Use JVM flags: -Xmx, -Xms, -XX:+HeapDumpOnOutOfMemoryError.
+Generate a heap dump and analyze it using tools like Eclipse MAT or VisualVM.
+Look for memory leaks, excessive object retention, or high GC overhead.
+
+9.How would you diagnose a memory leak in a large enterprise Java application?
+Answer:Monitor JVM memory usage with jvisualvm, jconsole, or Prometheus + Grafana.
+Trigger a heap dump on suspected leaks.
+Analyze heap dump with Eclipse MAT.
+Identify classes retaining memory unexpectedly (e.g., static maps, listeners).
+Use profiling tools (e.g., YourKit, JProfiler) for live analysis.
+
+10.If an application crashes with OutOfMemoryError, what steps would you take?
+Answer:Check logs for OutOfMemoryError messages.
+Enable -XX:+HeapDumpOnOutOfMemoryError and analyze the heap dump.
+Identify memory-heavy objects and their GC roots.
+Tune heap size and GC parameters as needed.
+Fix code (e.g., remove strong references, cache cleanup).
+Monitor in production using APM tools.
+
+11.How can you increase heap size in JVM?
+Answer:bash
+-Xms512m -Xmx2g
+-Xms: Initial heap size
+-Xmx: Maximum heap size
+
+12.Explain short-circuiting in logical operators.
+Answer: In && and ||, Java evaluates the second operand only if needed:
+a && b: If a is false, b is not evaluated.
+a || b: If a is true, b is not evaluated.
+
+13.How do bitwise operators differ from logical operators?
+Answer:
+Bitwise: Work at the binary level (&, |, ^).
+Logical: Work with boolean values (&&, ||).
