@@ -1,0 +1,63 @@
+1.this keyword
+Purpose: Refers to the current instance of a class.
+Common Uses:
+Disambiguate between instance and local variables.
+Call another constructor from a constructor.
+Pass the current object as an argument.
+
+2.super keyword
+Purpose: Refers to the parent class’s methods or constructors.
+Common Uses:
+Access parent class methods/variables.
+Call parent class constructor.
+
+3.final keyword
+Purpose: Used to define constants or prevent changes.
+Usage:
+Final variable → cannot be changed.
+Final method → cannot be overridden.
+Final class → cannot be extended.
+
+4.static keyword
+Purpose: Belongs to the class, not to an instance.
+Usage:
+Static variable → shared across all instances.
+Static method → can be called without an object.
+Static block → initializes static data.
+
+5.Composition vs. Inheritance
+Advantages of Inheritance:
+Code reuse: Common functionality is defined in the superclass.
+Polymorphism: Subclasses can override methods to provide specific behavior.
+Easy to understand in hierarchical structures (e.g., Dog is an Animal).
+
+Disadvantages of Inheritance:
+Tight Coupling: Changes in the superclass can break subclasses.
+Fragile Base Class Problem: Modifications to the superclass may unintentionally affect subclasses.
+Inflexibility: A subclass cannot change its superclass at runtime.
+Overuse: Excessive use of inheritance can lead to deep, complex hierarchies that are hard to maintain.
+
+Advantages of Composition:
+Flexibility: Objects can be replaced or modified at runtime, allowing dynamic behavior.
+Loose Coupling: Changes to the contained class do not necessarily affect the containing class, as long as the interface remains consistent.
+Encapsulation: The internal details of the contained objects are hidden, promoting modularity.
+Reusability: Components can be reused across different classes without requiring a hierarchy.
+
+Disadvantages of Composition:
+More Code: Requires explicit delegation of method calls to the contained objects, which can increase boilerplate code.
+Complexity: Managing multiple contained objects can be complex in large systems.
+No Built-in Polymorphism: Unlike inheritance, composition does not inherently support polymorphic behavior, though it can be achieved using interfaces.
+
+Use Inheritance when:
+The relationship is clearly "is-a" (e.g., Dog is an Animal).
+You need polymorphic behavior where subclasses override or extend superclass methods.
+The hierarchy is stable and unlikely to change significantly.
+Example: Modeling a taxonomy like Mammal → Dog → Labrador.
+
+Use Composition when:
+The relationship is "has-a" (e.g., Car has an Engine).
+You need flexibility to swap components or change behavior at runtime.
+You want to avoid tight coupling and fragile base class issues.
+Example: Building complex objects like a Computer with components (CPU, RAM, Storage).
+
+

@@ -65,3 +65,48 @@ a || b: If a is true, b is not evaluated.
 Answer:
 Bitwise: Work at the binary level (&, |, ^).
 Logical: Work with boolean values (&&, ||).
+
+14.Suppose you have a superclass reference pointing to a subclass object. Which methods can you access?
+Answer:Only overridden methods (if they exist in both). Subclass-specific methods require typecasting.
+
+15.Can this() and super() be used in the same constructor?
+Answer:No. Only one of them can be used, and it must be the first statement.
+
+16.What is the use of final with method arguments?
+Answer:It prevents reassignment of the parameter inside the method body.
+void show(final int x) {
+    x = x + 1;  // Error
+}
+
+17.Can we declare a class as both abstract and final?
+A:No. abstract means incomplete, final means not extendable — logically contradictory.
+
+18.Can you catch multiple exceptions in a single catch block?
+Answer: Yes, using the multi-catch feature introduced in Java 7:
+catch (IOException | SQLException e) {
+    e.printStackTrace();
+}
+
+19.Can a finally block be used without a catch block?
+Answer: Yes, a try block can be followed by a finally block without a catch block. The finally block will execute 
+after the try block, whether an exception occurs or not.
+
+20.What happens if an exception occurs in a finally block?
+Answer: If an exception occurs in a finally block, it will override any exception thrown in the try or catch block, unless the earlier exception is 
+explicitly propagated. This can lead to the original exception being lost, so it’s a good practice to handle exceptions in finally carefully.
+try {
+    throw new RuntimeException("Try block exception");
+} finally {
+    throw new RuntimeException("Finally block exception"); // Overrides try block exception
+}
+
+21.Can you throw an exception from a constructor?
+Answer: Yes, a constructor can throw exceptions, typically to indicate invalid initialization. The caller must handle or declare these exceptions.
+class MyClass {
+    public MyClass(int value) throws IllegalArgumentException {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+    }
+}
+
